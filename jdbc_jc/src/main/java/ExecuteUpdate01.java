@@ -37,6 +37,34 @@ public class ExecuteUpdate01 {
             System.out.println(dev_id +" - "+ dev_name +" - "+ dev_salary +" - "+dev_prog_lang);
         }
 
+
+        System.out.println("======Task2========");
+
+// Task 2: Add a new developer to the developers table (id, name, salary, prog_lang)
+        String query3 = "INSERT INTO developers VALUES(29,'Tom Hanks',7000,'Film');";
+        int numberOfRows = statement.executeUpdate(query3);
+        System.out.println("A new developer added = " + numberOfRows); // 1
+
+        String query4 = "SELECT * FROM developers;";
+        ResultSet rs5 = statement.executeQuery(query2);
+
+
+// to reach to the data
+        while (rs5.next()){
+            String dev_name = rs5.getString("name");
+            int dev_id = rs5.getInt("id");
+            int dev_salary = rs5.getInt("salary");
+            String dev_prog_lang = rs5.getString("prog_lang");
+
+            System.out.println(dev_id +" - "+ dev_name +" - "+ dev_salary +" - "+dev_prog_lang);
+        }
+
+        System.out.println("======Task3========");
+// Task 3: Delete the rows from the developers table where prog_lang is 'Film'
+
+
+
+
         // Close the connection and statement
         if (connection != null){
             statement.close();
