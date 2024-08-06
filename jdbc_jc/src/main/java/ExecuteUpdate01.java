@@ -37,32 +37,46 @@ public class ExecuteUpdate01 {
             System.out.println(dev_id +" - "+ dev_name +" - "+ dev_salary +" - "+dev_prog_lang);
         }
 
-
         System.out.println("======Task2========");
 
-// Task 2: Add a new developer to the developers table (id, name, salary, prog_lang)
-        String query3 = "INSERT INTO developers VALUES(29,'Tom Hanks',7000,'Film');";
-        int numberOfRows = statement.executeUpdate(query3);
-        System.out.println("A new developer added = " + numberOfRows); // 1
+        // Task 2: Add a new developer to the developers table (id, name, salary, prog_lang)
+//            String query3 = "INSERT INTO developers VALUES(51,'Tom Hanks',7000,'Film');";
+//            int numberOfRows = statement.executeUpdate(query3);
+//          System.out.println("A new developer added = " + numberOfRows); // 1
+//
+//        String query4 = "SELECT * FROM developers;";
+//        ResultSet rs4 = statement.executeQuery(query4);
+//
+//
+//        // to reach to the data
+//        while (rs4.next()){
+//            String dev_name = rs4.getString("name");
+//            int dev_id = rs4.getInt("id");
+//            int dev_salary = rs4.getInt("salary");
+//            String dev_prog_lang = rs4.getString("prog_lang");
+//
+//            System.out.println(dev_id +" - "+ dev_name +" - "+ dev_salary +" - "+dev_prog_lang);
+//        }
 
-        String query4 = "SELECT * FROM developers;";
-        ResultSet rs5 = statement.executeQuery(query2);
+        System.out.println("======Task3========");
+        // Task 3: Delete the rows from the developers table where prog_lang is 'Ruby'
+        String query5 = "DELETE FROM developers WHERE prog_lang = 'Ruby';";
 
+        int rowsDeleted = statement.executeUpdate(query5);
+        System.out.println("rowsDeleted = " + rowsDeleted); // 4
 
-// to reach to the data
-        while (rs5.next()){
-            String dev_name = rs5.getString("name");
-            int dev_id = rs5.getInt("id");
-            int dev_salary = rs5.getInt("salary");
-            String dev_prog_lang = rs5.getString("prog_lang");
+        String query6 = "SELECT * FROM developers;";
+
+        ResultSet rs6 = statement.executeQuery(query6);
+        // to reach to the data
+        while (rs6.next()){
+            String dev_name = rs6.getString("name");
+            int dev_id = rs6.getInt("id");
+            int dev_salary = rs6.getInt("salary");
+            String dev_prog_lang = rs6.getString("prog_lang");
 
             System.out.println(dev_id +" - "+ dev_name +" - "+ dev_salary +" - "+dev_prog_lang);
         }
-
-        System.out.println("======Task3========");
-// Task 3: Delete the rows from the developers table where prog_lang is 'Film'
-
-
 
 
         // Close the connection and statement
